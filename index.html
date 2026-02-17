@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Support System</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Smart Support System</h1>
+      <p>AI-assisted guidance across Hospital, Education, Work, Technical, and Bot domains.</p>
+    </header>
+
+    <main>
+      <nav class="domain-tabs" aria-label="Domain selector">
+        <button class="tab active" data-domain="hospital">Hospital</button>
+        <button class="tab" data-domain="education">Education</button>
+        <button class="tab" data-domain="work">Work Profession</button>
+        <button class="tab" data-domain="technical">Technical</button>
+        <button class="tab" data-domain="bot">Bot</button>
+      </nav>
+
+      <section id="support-panel" class="card">
+        <h2 id="domain-title">Hospital Support</h2>
+        <p id="domain-description"></p>
+
+        <div class="input-wrap">
+          <label for="situation-input">Describe your situation</label>
+          <textarea id="situation-input" rows="5" placeholder="Type your situation here..."></textarea>
+        </div>
+
+        <div class="actions">
+          <button id="voice-input-btn" type="button">🎤 Voice Input</button>
+          <button id="analyse-btn" type="button">Analyse</button>
+          <button id="speak-btn" type="button">🔊 Speak Response</button>
+        </div>
+
+        <div class="camera-block" id="camera-block">
+          <h3>Image / Camera Analysis</h3>
+          <div class="camera-actions">
+            <button id="start-camera-btn" type="button">Start Camera</button>
+            <button id="capture-btn" type="button">Capture Photo</button>
+            <input id="image-upload" type="file" accept="image/*" />
+          </div>
+          <video id="camera-view" autoplay playsinline muted></video>
+          <canvas id="capture-canvas" hidden></canvas>
+          <img id="image-preview" alt="Captured or uploaded preview" />
+          <p class="hint">You can upload an image or capture one from camera for context-aware suggestions.</p>
+        </div>
+
+        <article class="response">
+          <h3>AI Guidance</h3>
+          <div id="response-text">No analysis yet. Enter your situation and click Analyse.</div>
+        </article>
+
+        <article class="references">
+          <h3>Helpful References</h3>
+          <ul id="reference-list"></ul>
+        </article>
+      </section>
+
+      <section id="bot-panel" class="card hidden" aria-live="polite">
+        <h2>Smart Bot Communication</h2>
+        <div class="bot-layout">
+          <div class="avatar" id="avatar" aria-label="Animated bot avatar">
+            <div class="face">
+              <span class="eye"></span>
+              <span class="eye"></span>
+              <span class="mouth"></span>
+            </div>
+          </div>
+
+          <div class="chat-wrap">
+            <div id="chat-log" class="chat-log"></div>
+            <div class="chat-actions">
+              <input id="bot-input" type="text" placeholder="Talk to bot..." />
+              <button id="bot-send" type="button">Send</button>
+              <button id="bot-speak" type="button">🔊 Speak</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <small>Note: This demo provides informational support, not professional diagnosis or emergency services.</small>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
